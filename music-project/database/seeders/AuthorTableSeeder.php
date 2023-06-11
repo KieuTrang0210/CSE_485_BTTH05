@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use App\Models\Author;
 
-class AuthorsTableSeeder extends Seeder
+class AuthorTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,9 +17,10 @@ class AuthorsTableSeeder extends Seeder
     {
         $faker = Faker::create(); 
         for ($i = 0; $i < 20; $i++) { 
-        Author::create([
-            'ten_tgia' => $faker->name,
-            'hinh_tgia' => $faker->optional()->imageUrl(100,100)
+            Author::create([
+                'ma_tgia' => $i+1,
+                'ten_tgia' => $faker->name,
+                'hinh_tgia' => $faker->optional()->imageUrl(200,200)
         ]);
 }
 

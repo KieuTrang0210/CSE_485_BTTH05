@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use App\Models\Category;
 
-class CategoriesTableSeeder extends Seeder
+class CategoryTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,7 +18,8 @@ class CategoriesTableSeeder extends Seeder
         $faker = Faker::create();
         for($i=0; $i < 10; $i++){
             Category::create([
-                'ten_tloai' => $faker->word
+                'ma_tloai' => $i + 1,
+                'ten_tloai' => $faker->sentence(2, true)
             ]);
         }
     }

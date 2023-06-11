@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use App\Models\Article;
 
-class ArticlesTableSeeder extends Seeder
+class ArticleTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,16 +16,17 @@ class ArticlesTableSeeder extends Seeder
     public function run(): void
     {
         $faker = Faker::create();
-        for($i = 0; $i < 30; $i++){
+        for($i = 0; $i < 50; $i++){
             Article::create([
-                'tieude' => $faker->sentence(6),
-                'ten_bhat' => $faker->sentence($faker->numberBetween(2,5)),
+                'ma_bviet' => $i+1,
+                'tieude' => $faker->sentence(10, true),
+                'ten_bhat' => $faker->sentence($faker->numberBetween(2,10)),
                 'ma_tloai' => $faker->numberBetween(1,10),
-                'tomtat' => $faker->paragraph,
+                'tomtat' => $faker->paragraph(1),
                 'noidung' => $faker->optional()->paragraphs(3, true),
                 'ma_tgia' => $faker->numberBetween(1,20),
                 'ngayviet' => $faker->dateTimeBetween('2022-01-01', now()->format('Y-m-d'))->format('Y-m-d'),
-                'hinhanh' => $faker->imageUrl(200,200)
+                'hinhanh' => $faker->imageUrl(640,480)
             ]);
         }
     }
